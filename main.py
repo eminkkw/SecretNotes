@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 
 # Window
 window = Tk()
@@ -8,8 +9,12 @@ window.minsize(width=400,height=600)
 def dosyaya_kayıt_1():
     veri = entry_1.get()
     metin = text_1.get("1.0",END)
+
+    if veri == "" or metin == "":
+        messagebox.showerror("Hata","Başlık veya Metin boş bırakılamaz!")
     with open("bilgiler.txt","a") as dosya:
         dosya.write(veri+ metin + "\n")
+
 
 
 # Image
